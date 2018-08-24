@@ -24,18 +24,18 @@ def processRequest(req):
 	res = makeWebhookResult(req)
 	return res
 def makeWebhookResult(req):
-result=req.get("result")
-parameters=result.get("parameters")
-city=parameters.get("geo-city")
-r=requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=b6907d289e10d714a6e88b30761fae22')
-json_object=r.json()
-weather=json_object['list']
-for i in range(0,30):
- if date in weather[i]['dt_txt']:
-   condition=weather[i]['weather'][0]['description']
-   break
-    speech="The forecast for"+city+" is "+condition
-    return {
+	result=req.get("result")
+	parameters=result.get("parameters")
+	city=parameters.get("geo-city")
+	r=requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=b6907d289e10d714a6e88b30761fae22')
+	json_object=r.json()
+	weather=json_object['list']
+	for i in range(0,30):
+	 if date in weather[i]['dt_txt']:
+	   condition=weather[i]['weather'][0]['description']
+	 break
+	 speech="The forecast for"+city+" is "+condition
+	return{
         "fulfillmentText": speech,
         #"displayText": speech,
         #"data": {"slack": slack_message, "facebook": facebook_message},

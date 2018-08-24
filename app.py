@@ -35,7 +35,7 @@ def makeWebhookResult(req):
 	   condition=weather[i]['weather'][0]['description']
 	 break
 	 #speech="The forecast for"+city+" is "+condition
-	speech="The forecast for" is "+condition
+	speech="The forecast for"+condition
 	return{
         "fulfillmentText": speech,
         #"displayText": speech,

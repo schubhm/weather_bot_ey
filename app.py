@@ -24,18 +24,18 @@ def processRequest(req):
 	res = makeWebhookResult(req)
 	return res
 def makeWebhookResult(req):
-	result=req.get("result")
+	#result=req.get("result")
 	#parameters=result.get("parameters")
 	#city=parameters.get("geo-city")
 	r=requests.get('http://api.openweathermap.org/data/2.5/weather?q=delhi&appid=fb03265fe100997cf20211361642b414')
 	json_object=r.json()
-	weather=json_object['list']
-	for i in range(0,30):
-	 if date in weather[i]['dt']:
-	   condition=weather[i]['weather'][0]['description']
-	 break
-	 #speech="The forecast for"+city+" is "+condition
-	speech="The forecast for"+condition
+	weather=json_object['weather'][0]['main']
+	#for i in range(0,30):
+	 #if date in weather[i]['dt']:
+	  # condition=weather[i]['weather'][0]['description']
+	 #break
+	 speech="The forecast  is "+weather
+	#speech="The forecast for"+condition
 	return{
         "fulfillmentText": speech,
         #"displayText": speech,

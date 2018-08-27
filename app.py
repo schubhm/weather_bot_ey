@@ -28,10 +28,10 @@ def makeWebhookResult(req):
 	result=req.get("result")
 	parameters=result.get("parameters")
 	city=parameters.get("geo-city")
-	r=requests.get('http://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=fb03265fe100997cf20211361642b414')
+	r=requests.get('http://api.openweathermap.org/data/2.5/weather?q=kerala&appid=fb03265fe100997cf20211361642b414')
 	json_object=r.json()
 	weather=json_object['weather'][0]['main']
-	speech="The Forecast is"+str(weather)
+	speech="The Forecast is "+str(weather)
 	#for i in range(0,30):
 	 #if date in weather[i]['dt']:
 	  # condition=weather[i]['weather'][0]['description']
